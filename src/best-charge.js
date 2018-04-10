@@ -33,8 +33,7 @@ function generateItemList(itemList) {
 }
 
 function generatePromotes(itemList, promotions, total) {
-  var promoteStr1 = '',
-    promoteStr2 = '',
+  var
     promoteStr = '',
     itemName = [],
     budget1 = 0,
@@ -56,7 +55,8 @@ function generatePromotes(itemList, promotions, total) {
 
     }
   }
-  promoteStr2 = itemName.toString();
+  promoteStr2 = itemName.toString().split(',').join('，');
+
 
   if (budget1 > budget2) {
     promoteStr = promotions[0].type;
@@ -71,7 +71,7 @@ function generatePromotes(itemList, promotions, total) {
   if (maxbudget == 0) {
     return promoteInfo = '总计：' + total + '元\n' + '===================================';
   } else {
-    promoteInfo = '使用优惠:\n' + promoteStr + ',' + '省' + maxbudget + '元\n'
+    promoteInfo = '使用优惠:\n' + promoteStr + '，' + '省' + maxbudget + '元\n'
       + '-----------------------------------\n'
 
       + '总计：' + total + '元\n' +
@@ -84,10 +84,7 @@ function generatePromotes(itemList, promotions, total) {
 function bestCharge(selectedItems) {
   var allItems = loadAllItems();
   var promotions = loadPromotions();
-  var itemPrice = [],
-    itemBudget = [],
-    totalPrice,
-    itemList,
+  var itemList,
     itemListObj,
     itemInfo = '',
     promoteInfo,
